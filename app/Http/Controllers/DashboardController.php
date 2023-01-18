@@ -8,6 +8,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        $data['menu'] = 'home';
+
+        return view('dashboard.pages.index')->with($data);
+        // return view('dashboard');
     }
 }
