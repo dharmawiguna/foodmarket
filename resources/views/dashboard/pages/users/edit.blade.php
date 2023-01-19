@@ -48,16 +48,17 @@
                     <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
                         <div class="card  box-shadow-0">
                             <div class="card-header">
-                                <h4 class="card-title mb-1">Tambahkan Users</h4>
+                                <h4 class="card-title mb-1">Update {{$user->name}}</h4>
                             </div>
                             <div class="card-body pt-0">
-                                <form class="form-horizontal" method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
+                                <form class="form-horizontal" method="POST" action="{{route('users.update', $user->id)}}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
+                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" value="{{old('name') ?? $user->name}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{old('email') ?? $user->email}}">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control" id="inputEmail3" name="profile_photo_path">
@@ -69,30 +70,31 @@
                                         <input type="password" class="form-control" id="inputPasswordConf" placeholder="Password Confirmation" name="password_confirmation">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address" value="{{old('address') ?? $user->address}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Roles</label>
 										<select name="roles" class="form-control form-select" data-bs-placeholder="Select Roles">
+                                            <option value="{{$user->roles}}">{{$user->roles}}</option>
                                             <option value="ADMIN">Admin</option>
                                             <option value="USER">User</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="House Number" name="houseNumber">
+                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="House Number" name="houseNumber" value="{{old('houseNumber') ?? $user->houseNumber}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phoneNumber">
+                                        <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phoneNumber" value="{{old('phoneNumber') ?? $user->phoneNumber}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputcity" placeholder="City" name="city">
+                                        <input type="text" class="form-control" id="inputcity" placeholder="City" name="city" value="{{old('city') ?? $user->city}}">
                                     </div>
                                     <div class="form-group mb-0 mt-3 d-flex" style="justify-content: space-between">
                                         <div>
-                                            <button type="" class="btn btn-secondary">Cancel</button>
+                                            <a href="{{route('users.index')}}" class="btn btn-secondary">Cancel</a>
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </div>
                                 </form>

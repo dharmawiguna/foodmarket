@@ -14,7 +14,7 @@
                     <div class="justify-content-center mt-2">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Users</li>
+                            <li class="breadcrumb-item active" aria-current="page">Transactions</li>
                         </ol>
                     </div>
                 </div>
@@ -26,12 +26,9 @@
                 <div class="row">
                     <div class="col-12 col-sm-12">
                         <div class="card">
-                            <div class="card-header d-flex" style="justify-content:space-between">
+                            <div class="card-header">
                                 <div>
-                                    <h4 class="card-title">Product Summary</h4>
-                                </div>
-                                <div>
-                                    <a href="{{route('users.create')}}" class="btn btn-primary">Add Users</a>
+                                    <h4 class="card-title">Transaction List</h4>
                                 </div>
                             </div>
                             <div class="card-body pt-0 example1-table">
@@ -40,22 +37,26 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ID</th>
-                                                <th>NAME</th>
-                                                <th>EMAIL</th>
-                                                <th>ROLES</th>
+                                                <th>FOOD</th>
+                                                <th>USER</th>
+                                                <th>QUANTITY</th>
+                                                <th>TOTAL</th>
+                                                <th>STATUS</th>
                                                 <th>ACTION</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($user as $item)
+                                            @foreach ($transaction as $item)
                                                 <tr>
                                                     <td class="text-center">{{$item->id}}</td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td>{{$item->email}}</td>
-                                                    <td>{{$item->roles}}</td>
+                                                    <td>{{$item->food->name}}</td>
+                                                    <td>{{$item->user->name}}</td>
+                                                    <td>{{$item->quantity}}</td>
+                                                    <td>{{number_format($item->total)}}</td>
+                                                    <td>{{$item->status}}</td>
                                                     <td>
-                                                        <a href="{{route('users.edit', $item->id)}}" class="btn btn-primary">Edit</a>
-                                                        <form action="{{route('users.destroy', $item->id) }}" method="POST">
+                                                        <a href="{{route('transaction.show', $item->id)}}" class="btn btn-primary">Show</a>
+                                                        <form action="{{route('transaction.destroy', $item->id) }}" method="POST">
                                                             {!! method_field('delete') . csrf_field() !!}
                                                             <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>

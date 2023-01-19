@@ -14,7 +14,7 @@
                     <div class="justify-content-center mt-2">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Users</li>
+                            <li class="breadcrumb-item active" aria-current="page">Foods</li>
                         </ol>
                     </div>
                 </div>
@@ -48,51 +48,41 @@
                     <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
                         <div class="card  box-shadow-0">
                             <div class="card-header">
-                                <h4 class="card-title mb-1">Tambahkan Users</h4>
+                                <h4 class="card-title mb-1">Update {{$food->name}} </h4>
                             </div>
                             <div class="card-body pt-0">
-                                <form class="form-horizontal" method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
+                                <form class="form-horizontal" method="POST" action="{{route('food.update', $food->id)}}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
+                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" value="{{old('name') ?? $food->name}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                                        <input type="file" class="form-control" id="inputEmail3" name="picturePath">
                                     </div>
                                     <div class="form-group">
-                                        <input type="file" class="form-control" id="inputEmail3" name="profile_photo_path">
+                                        <textarea class="form-control" id="inputDescription" name="description" >{{old('description') ?? $food->description}}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                                        <input type="text" class="form-control" id="inputIngredients" placeholder="Ingredients" name="ingredients" value="{{old('ingredients') ?? $food->ingredients}}">
+                                        <small>*separated by (,). Ex : Salt, Sugar, Etc</small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" id="inputPasswordConf" placeholder="Password Confirmation" name="password_confirmation">
+                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="Food Price" name="price" value="{{old('price') ?? $food->price}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="Food Rate" name="rate" value="{{old('rate') ?? $food->rate}}" step="0.01" max="5">
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">Roles</label>
-										<select name="roles" class="form-control form-select" data-bs-placeholder="Select Roles">
-                                            <option value="ADMIN">Admin</option>
-                                            <option value="USER">User</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="House Number" name="houseNumber">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phoneNumber">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="inputcity" placeholder="City" name="city">
+                                        <input type="text" class="form-control" id="inputType" placeholder="Type" name="types" value="{{old('types') ?? $food->types}}">
+                                        <small>*separated by (,). Ex : Recommended, Popular, new_food</small>
                                     </div>
                                     <div class="form-group mb-0 mt-3 d-flex" style="justify-content: space-between">
                                         <div>
-                                            <button type="" class="btn btn-secondary">Cancel</button>
+                                            <a href="{{route('food.index')}}" class="btn btn-secondary">Cancel</a>
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Update Food</button>
                                         </div>
                                     </div>
                                 </form>
