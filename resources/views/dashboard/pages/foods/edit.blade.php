@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="inputType" placeholder="Type" name="types" value="{{old('types') ?? $food->types}}">
-                                        <small>*separated by (,). Ex : Recommended, Popular, new_food</small>
+                                        <small>*separated by (,). Ex : recommended, popular, new_food</small>
                                     </div>
                                     <div class="form-group mb-0 mt-3 d-flex" style="justify-content: space-between">
                                         <div>

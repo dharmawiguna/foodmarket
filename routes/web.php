@@ -24,6 +24,7 @@ Route::get('/', function(){
 
 Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin-dashboard');
+    Route::post('/logout', [DashboardController::class, 'logout'])->name('logout');
     Route::resource('users', UserController::class);
     Route::resource('food', FoodController::class);
 

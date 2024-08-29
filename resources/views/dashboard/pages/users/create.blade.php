@@ -54,10 +54,10 @@
                                 <form class="form-horizontal" method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
+                                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" value="{{old('name')}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{old('email')}}">
                                     </div>
                                     <div class="form-group">
                                         <input type="file" class="form-control" id="inputEmail3" name="profile_photo_path">
@@ -69,23 +69,23 @@
                                         <input type="password" class="form-control" id="inputPasswordConf" placeholder="Password Confirmation" name="password_confirmation">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address" value="{{old('address')}}">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Roles</label>
-										<select name="roles" class="form-control form-select" data-bs-placeholder="Select Roles">
+										<select name="roles" class="form-control form-select" data-bs-placeholder="Select Roles" value="{{old('roles')}}">
                                             <option value="ADMIN">Admin</option>
                                             <option value="USER">User</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="inputHouseNumber" placeholder="House Number" name="houseNumber">
+                                        <input type="text" class="form-control" id="inputHouseNumber" placeholder="House Number" name="houseNumber" value="{{old('houseNumber')}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phoneNumber">
+                                        <input type="number" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phoneNumber" value="{{old('phoneNumber')}}">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="inputcity" placeholder="City" name="city">
+                                        <input type="text" class="form-control" id="inputcity" placeholder="City" name="city" value="{{old('city')}}">
                                     </div>
                                     <div class="form-group mb-0 mt-3 d-flex" style="justify-content: space-between">
                                         <div>

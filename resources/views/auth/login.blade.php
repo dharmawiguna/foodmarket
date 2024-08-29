@@ -61,7 +61,7 @@
 		<meta name="Keywords" content="admin,admin dashboard,admin dashboard template,admin panel template,admin template,admin theme,bootstrap 4 admin template,bootstrap 4 dashboard,bootstrap admin,bootstrap admin dashboard,bootstrap admin panel,bootstrap admin template,bootstrap admin theme,bootstrap dashboard,bootstrap form template,bootstrap panel,bootstrap ui kit,dashboard bootstrap 4,dashboard design,dashboard html,dashboard template,dashboard ui kit,envato templates,flat ui,html,html and css templates,html dashboard template,html5,jquery html,premium,premium quality,sidebar bootstrap 4,template admin bootstrap 4"/>
 		
 		<!-- TITLE -->
-		<title>Nowa – PHP Bootstrap 5 Admin & Dashboard Template</title>
+		<title>Admin Dashboard - Food Market</title>
 
 		<!-- FAVICON -->
 		<link rel="icon" href="../assets/img/brand/favicon.png" type="image/x-icon"/>
@@ -218,7 +218,7 @@
 							<div class="card-sigin">
 								 <!-- Demo content-->
 								 <div class="main-card-signin d-md-flex">
-									 <div class="wd-100p"><div class="d-flex mb-4"><a href="index.html"><img src="../assets/img/brand/favicon.png" class="sign-favicon ht-40" alt="logo"></a></div>
+									 <div class="wd-100p">
 										 <div class="">
 											<div class="main-signup-header">
 												<h2>Welcome back!</h2>
@@ -238,26 +238,12 @@
 																<form method="POST" action="{{ route('login') }}">
 																	@csrf
 																   <div class="form-group">
-																	   <label>Email</label> <input class="form-control" placeholder="Enter your email" type="text" name="email" :value="old('email')" required autofocus>
+																	   <label>Email</label> <input class="form-control" placeholder="Enter your email" type="text" name="email" value="{{old('email')}}" required autofocus>
 																   </div>
 																   <div class="form-group">
 																	   <label>Password</label> <input class="form-control" placeholder="Enter your password" type="password" name="password" required autocomplete="current-password" >
 																   </div>
 																   <button class="btn btn-primary btn-block" role="button">Sign In</button>
-																   <div class="mt-4 d-flex text-center justify-content-center mb-2">
-																		<a href="https://www.facebook.com/" target="_blank" class="btn btn-icon btn-facebook me-3" type="button">
-																			<span class="btn-inner--icon"> <i class="bx bxl-facebook tx-18 tx-prime"></i> </span>
-																		</a>
-																		<a href="https://www.twitter.com/" target="_blank" class="btn btn-icon me-3" type="button">
-																			<span class="btn-inner--icon"> <i class="bx bxl-twitter tx-18 tx-prime"></i> </span>
-																		</a>
-																		<a href="https://www.linkedin.com/" target="_blank" class="btn btn-icon me-3" type="button">
-																			<span class="btn-inner--icon"> <i class="bx bxl-linkedin tx-18 tx-prime"></i> </span>
-																		</a>
-																		<a href="https://www.instagram.com/" target="_blank" class="btn  btn-icon me-3" type="button">
-																			<span class="btn-inner--icon"> <i class="bx bxl-instagram tx-18 tx-prime"></i> </span>
-																		</a>
-																   </div>
 																</form>
 														   </div>
 														   <div class="tab-pane" id="tab6">
@@ -283,11 +269,6 @@
 													   </div>
 												   </div>
 											   </div>
-
-												<div class="main-signin-footer text-center mt-3">
-													<p><a href="forgot.html" class="mb-3">Forgot password?</a></p>
-													<p>Don't have an account? <a href="{{ route('register') }}">Create an Account</a></p>
-												</div>
 											</div>
 										 </div>
 									 </div>

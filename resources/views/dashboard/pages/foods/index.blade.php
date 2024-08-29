@@ -9,7 +9,7 @@
                 <!-- breadcrumb -->
                 <div class="breadcrumb-header justify-content-between">
                     <div class="left-content">
-                    <span class="main-content-title mg-b-0 mg-b-lg-1">DASHBOARD</span>
+                    <span class="main-content-title mg-b-0 mg-b-lg-1">FOOD</span>
                     </div>
                     <div class="justify-content-center mt-2">
                         <ol class="breadcrumb">
@@ -56,10 +56,10 @@
                                                     <td>{{$item->rate}}</td>
                                                     <td>{{$item->types}}</td>
                                                     <td>
-                                                        <a href="{{route('food.edit', $item->id)}}" class="btn btn-primary">Edit</a>
+                                                        <a href="{{route('food.edit', $item->id)}}" class="btn btn-primary btn-block mb-2">Edit</a>
                                                         <form action="{{route('food.destroy', $item->id) }}" method="POST">
                                                             {!! method_field('delete') . csrf_field() !!}
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit" class="btn btn-danger btn-block">Delete</button>
                                                         </form>
                                                     </td>
                                                 </tr>

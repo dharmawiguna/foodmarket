@@ -8,6 +8,8 @@ use App\Models\Food;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class TransactionController extends Controller
 {
@@ -57,7 +59,8 @@ class TransactionController extends Controller
     {
         $request->validate([
             'food_id' => 'required|exists:food,id',
-            'user_id' => 'required|exists:user,id',
+            // 'user_id' => 'required|exists:user,id',
+            'user_id' => 'required',
             'quantity' => 'required',
             'total' => 'required',
             'status' => 'required',
@@ -79,7 +82,7 @@ class TransactionController extends Controller
         Config::$is3ds = config('services.midtrans.is3ds');
 
         //call transactions
-        $transaction = Transaction::with(['food', 'user'])->find($transaction->id);
+        $transaction = Transaction::with(['food', 'user'])->find($transaction->id);        
 
         // create transaction
         $midtrans = [
